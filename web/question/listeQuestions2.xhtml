@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+    <title>Liste des questions</title>
+  </h:head>
+  <h:body>
+    <f:view>
+      <h:form>
+        <h1><h:outputText value="Liste des questions"/></h1>
+        <p:dataTable value="#{listeQuestions.questions}" var="item"
+                     emptyMessage="Aucune question trouvée"
+                     >
+          <p:column>
+            <f:facet name="header">
+              <h:outputText value="Enonce"/>
+            </f:facet>
+            <h:inputTextarea readonly="true"  value="#{item.enonce}" />
+          </p:column>
+          <p:column>
+            <f:facet name="header">
+              <h:outputText value="MotsCles"/>
+            </f:facet>
+            <h:outputText value="#{item.motsCles}"/>
+          </p:column>
+          <p:column>
+            <f:facet name="header">
+              <h:outputText value="Id"/>
+            </f:facet>
+            <h:outputText value="#{item.id}"/>
+          </p:column>
+          <p:column>
+            <h:link outcome="View" includeViewParams="true" value="Détails sur la question">
+              <f:param name="idQuestion" value="#{item.id}" />
+            </h:link>
+          </p:column>
+        </p:dataTable>
+        <h:link action="CreerQuestion" value="#{bundle.ListQuestionCreateLink}"/>
+      </h:form>
+    </f:view>
+
+  </h:body>
+</html>
+

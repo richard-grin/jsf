@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+  <body>
+
+    <ui:composition template="./../template.xhtml">
+      <ui:define name="metadata">
+        <f:event listener="#{ajoutQuestion.initQuestion()}" type="preRenderView" />
+      </ui:define>
+
+      <ui:define name="top">
+        top
+      </ui:define>
+
+      <ui:define name="left">
+        left
+      </ui:define>
+
+      <ui:define name="content">
+        <f:view>
+          <h:form>
+            <h1><h:outputText value="Create/Edit"/></h1>
+            <h:panelGrid columns="2">
+              <h:outputLabel value="Enonce:" for="enonce" />
+              <h:inputText id="enonce" value="#{ajoutQuestion.questionEnCours.enonce}" title="Enonce" />
+              <h:outputLabel value="MotsCles:" for="motsCles" />
+              <h:inputText id="motsCles" value="#{ajoutQuestion.questionEnCours.motsCles}" title="MotsCles" />
+              <h:outputLabel value="Id:" for="id" />
+              <h:inputText id="id" value="#{ajoutQuestion.questionEnCours.id}" title="Id" />
+            </h:panelGrid>
+          </h:form>
+        </f:view>
+
+      </ui:define>
+
+    </ui:composition>
+
+  </body>
+</html>
